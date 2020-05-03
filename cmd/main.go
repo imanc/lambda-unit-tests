@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/imanc/lambda-unit-testing/infrastructure/pkg/service"
+	"github.com/imanc/lambda-unit-testing/internal/pkg/service"
 )
 
-func handlerClosure(monthService service.MonthService) func(ctx context.Context) (string, error) {
+func handlerClosure(monthService service.Service) func(ctx context.Context) (string, error) {
 	return func(ctx context.Context) (string, error) {
 		currentMonth := monthService.CurrentMonth()
 		response, err := json.Marshal(currentMonth)

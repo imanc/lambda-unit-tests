@@ -16,8 +16,13 @@ type Month struct {
 type MonthService struct {
 }
 
+// NewMonthService return a new MonthService
+func NewMonthService() MonthService {
+	return MonthService{}
+}
+
 // CurrentMonth returns the current Month
-func (s *MonthService) CurrentMonth() Month {
+func (s MonthService) CurrentMonth() Month {
 	currentTime := time.Now()
 
 	return Month{
