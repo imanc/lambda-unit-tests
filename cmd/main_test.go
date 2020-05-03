@@ -24,7 +24,7 @@ func TestHandler(t *testing.T) {
 	expectedResponse := "\"{\\\"Name\\\":\\\"May\\\"}\""
 	handlerClosure := handlerClosure(ServiceMock{})
 	lambdaHandler := lambda.NewHandler(handlerClosure)
-	response, err := lambdaHandler.Invoke(context.TODO(), nil)
+	response, err := lambdaHandler.Invoke(context.TODO(), nil) //second argument is the paylod that we can ignore in this case
 
 	assert.Nil(t, err)
 	assert.Equal(t, expectedResponse, string(response))
