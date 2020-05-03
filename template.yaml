@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  lambda-testing-unit-jobs
+  
+  Sample SAM Template for lambda-testing-unit-jobs
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 5
+
+Resources:
+  GetMonthFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      FunctionName: lambda-unit-testing
+      CodeUri: bin/
+      Handler: lambda-unit-testing
+      Runtime: go1.x
+      Events:
+        GetMonth:
+          Type: Api
+          Properties:
+            Path: /time
+            Method: GET
+
+
+
